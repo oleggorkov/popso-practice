@@ -1,0 +1,5 @@
+mixin radio-btn(text, id, name, value, classes, checked, info)
+    div.radio__block
+        input(type='radio' id=id name=name value=value class=classes checked=checked)/
+        label(for=id class=classes)=text
+        span= info

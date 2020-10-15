@@ -1,0 +1,72 @@
+include ../control-elements/radio-button/radio-button
+include ../control-elements/set-number/set-number
+
+mixin calc-input(title)
+    div.calc-input
+        h2.title__darkgray= title
+        input(type='number' name='set-count')
+
+mixin calc-set(title)
+    div.calc-set
+        div.calc-set__header
+            h2.title__darkgray= title
+            span.question-info ?
+                span.question-info__popup
+                    span.question-info__popup-text Укажите процент указанный для артикула в качестве "СПП" - если "СПП" не используется укажите "0"
+        +set-number
+
+mixin product-calculator
+    section.product-calculator
+        div.product-calculator__wrapper
+            h1.page-title Калькулятор маржинальности товара при продаже на маркетплейсах
+            div.product-calculator__block
+                div.product-calculator__block-data
+                    div.product-calculator__block-data-el
+                        +calc-input('Розничная цена, руб.')
+                    div.product-calculator__block-data-el
+                        +calc-input('Себестоимость, руб.')
+                    div.product-calculator__block-data-el
+                        +calc-input('Упаковка, хранение, руб')
+                    div.product-calculator__block-data-el
+                        +calc-set('Комиссия маркетплейса')
+                    div.product-calculator__block-data-el
+                        +calc-set('Скидка на маркетплейсе')
+                    div.product-calculator__block-data-el
+                        +calc-set('Реклама на маркетплейсе')
+                    div.product-calculator__block-data-delivery
+                        h2.title__darkgray Покатушки
+                        div.product-calculator__block-data-delivery-wrap
+                            div.product-calculator__block-data-delivery-block
+                                h3.title__middlegray.title__middlegray--padding-top Доставка со склада
+                                div.product-calculator__block-data-delivery-store
+                                    +radio-btn('33 руб./Wildberries', 'wildberries', 'delivery',
+                                        'wildberries', ['radio-label', 'radio-input'], 'checked')
+                                    +radio-btn('35 руб./Ozon', 'ozon', 'delivery',
+                                        'ozon', ['radio-label', 'radio-input'], '', '(мелкий товар)')
+                                    +radio-btn('75 руб./Ozon', 'ozon-big', 'delivery',
+                                        'ozon-big', ['radio-label', 'radio-input'], '', '(товар побольше)')
+                            div.product-calculator__block-data-delivery-block
+                                h3.title__middlegray 1шт – продажа с 1го раза, 3шт – со 2го, 5шт – проблемы с товаром
+                                div.product-calculator__block-data-delivery-store
+                                    +radio-btn('1 раз', 'one', 'delivery-number',
+                                        'one', ['radio-label', 'radio-input'], 'checked')
+                                    +radio-btn('3 раза', 'three', 'delivery-number',
+                                        'three', ['radio-label', 'radio-input'])
+                                    +radio-btn('5 раз', 'five', 'delivery-number',
+                                        'five', ['radio-label', 'radio-input'])
+                    div.product-calculator__block-data-popso
+                        div.product-calculator__block-data-popso-header
+                            h2.title__darkgray Ведение и поддержка от POPSO
+                            span.question-info ?
+                                span.question-info__popup
+                                    span.question-info__popup-text Укажите процент указанный для артикула в качестве "СПП" - если "СПП" не используется укажите "0
+                        div.product-calculator__block-data-popso-support
+                            div.product-calculator__block-data-popso-support-radio
+                                +radio-btn('8%', 'eight', 'popso-rate',
+                                    'eight', ['radio-label', 'radio-input'], 'checked')
+                                span / с продаж после вычета комиссий маркетплейса
+                            div.product-calculator__block-data-popso-support-radio
+                                +radio-btn('0%', 'zero', 'popso-rate',
+                                    'zero', ['radio-label', 'radio-input'])
+                                span / сами, всё сами :)
+                div.product-calculator__block-rezult

@@ -1,0 +1,55 @@
+.set-number {
+  display: flex;
+
+  &__minus, &__plus {
+    width: 6rem;
+    height: auto;
+
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 3.2rem;
+    color: $helper-color-darkgray;
+
+    border: 0.1rem solid $helper-color-lightgray;
+    box-sizing: border-box;
+
+    transition: color ease 0.25s, border ease 0.25s;
+
+    @include above($desktop) {
+      &:hover {
+        color: $helper-color-darkgray;
+        border: 0.1rem solid $helper-color-darkgray;
+      }
+    }
+  }
+
+  &__minus {
+    border-radius: 1rem 0 0 1rem;
+  }
+
+  &__plus {
+    border-radius: 0 1rem 1rem 0;
+  }
+
+  &__input {
+    width: 8rem;
+    height: auto;
+
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 0;
+
+    cursor: pointer;
+
+    color: $helper-color-darkgray;
+    text-align: left;
+    padding: 0.6rem 2.6rem;
+
+    border: none;
+    border-top: 0.1rem solid $helper-color-lightgray;
+    border-bottom: 0.1rem solid $helper-color-lightgray;
+
+    transition: border ease 0.25s;
+  }
+}

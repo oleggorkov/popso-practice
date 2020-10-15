@@ -5,3 +5,29 @@
 
 
 //titles
+
+.title__darkgray {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 500;
+  letter-spacing: 0;
+
+  color: $helper-color-darkgray;
+  text-align: left;
+}
+
+.title__middlegray {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0;
+
+  color: $helper-color-middlegray;
+  text-align: left;
+
+  &--padding-top {
+    padding-top: 1.6rem;
+  }
+}
+
+
