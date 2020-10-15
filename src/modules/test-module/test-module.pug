@@ -1,0 +1,11 @@
+include ../icon/icon
+
+mixin test-module
+    section.test-module
+        div.wrapper
+            div.inner.test-module__logo
+                +icon('logo-main').test-module__logo--main
+                +icon('logo-text').test-module__logo--text
+            div.inner.test-module__description
+                p VoxWeb started template.
+                a(href='https://github.com/voxweb/voxweb-template-docs' target='_blank') documentation

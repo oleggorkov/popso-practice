@@ -1,0 +1,1 @@
+Документаци к сборке можно найте по ссылке: https://github.com/voxweb/voxweb-template-docs
