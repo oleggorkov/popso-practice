@@ -6,13 +6,22 @@ mixin calc-input(title)
         h2.title__darkgray= title
         input(type='number' name='set-count')
 
-mixin calc-set(title)
-    div.calc-set
+mixin calc-input-rate(title, text)
+    div.calc-input
         div.calc-set__header
-            h2.title__darkgray= title
+            h2.title__middlegray= title
             span.question-info ?
                 span.question-info__popup
-                    span.question-info__popup-text Укажите процент указанный для артикула в качестве "СПП" - если "СПП" не используется укажите "0"
+                    span.question-info__popup-text= text
+        input(type='number' name='set-count')
+
+mixin calc-set(title, text)
+    div.calc-set
+        div.calc-set__header
+            h2.title__middlegray= title
+            span.question-info ?
+                span.question-info__popup
+                    span.question-info__popup-text= text
         +set-number
 
 mixin product-calculator
@@ -26,13 +35,13 @@ mixin product-calculator
                     div.product-calculator__block-data-el
                         +calc-input('Себестоимость, руб.')
                     div.product-calculator__block-data-el
-                        +calc-input('Упаковка, хранение, руб')
+                        +calc-input-rate('Упаковка, хранение, руб', 'Товар у вас, теперь его надо понятно, красиво и удобно упаковать и где-то хранить')
                     div.product-calculator__block-data-el
-                        +calc-set('Комиссия маркетплейса')
+                        +calc-set('Комиссия маркетплейса, %', 'Средний процент — 15. У каждой площадки свои комиссии на разные категории товаров')
                     div.product-calculator__block-data-el
-                        +calc-set('Скидка на маркетплейсе')
+                        +calc-set('Скидка на маркетплейсе, %', 'Покупатели любят скидки. Маркетплейсы проводят акции, для которых нужны скидки. Закладывайте возможность проводить акции в цену товара')
                     div.product-calculator__block-data-el
-                        +calc-set('Реклама на маркетплейсе')
+                        +calc-set('Реклама на маркетплейсе, %', 'Для повышения продаж товары нужно рекламировать на площадке, чтобы покупатели выбирали вас среди множества предложений')
                     div.product-calculator__block-data-delivery
                         h2.title__darkgray Покатушки
                         div.product-calculator__block-data-delivery-wrap
@@ -70,3 +79,44 @@ mixin product-calculator
                                     'zero', ['radio-label', 'radio-input'])
                                 span / сами, всё сами :)
                 div.product-calculator__block-rezult
+                    h2 Результаты расчёта
+                    div.product-calculator__block-rezult-info
+                        div.product-calculator__block-rezult-info-el
+                            div Цена товара
+                            span 2500 &#8381
+                        div.product-calculator__block-rezult-info-el
+                            div Комиссия маркетплейса
+                            span 638 &#8381
+                        div.product-calculator__block-rezult-info-el-tab
+                            div.product-calculator__block-rezult-info-el-tab-list
+                                div Товар
+                                span 1000 &#8381
+                            div.product-calculator__block-rezult-info-el-tab-list
+                                div Реклама
+                                span 190 &#8381
+                            div.product-calculator__block-rezult-info-el-tab-list
+                                div Логистика
+                                span 810 &#8381
+                        div.product-calculator__block-rezult-info-el
+                            div Перечисление на ваш счёт
+                            span 1487 &#8381
+                        div.product-calculator__block-rezult-info-el
+                            div Налоги и комиссия POPSO
+                            span 208 &#8381
+                        div.product-calculator__block-rezult-info-el-tab
+                            div.product-calculator__block-rezult-info-el-tab-list
+                                div Налоги
+                                span 89 &#8381
+                            div.product-calculator__block-rezult-info-el-tab-list
+                                div Спасибо popso.ru
+                                span 119 &#8381
+                        h3 Вы заработали
+                        div.product-calculator__block-rezult-info-el
+                            div С одной продажи
+                            span 1279 &#8381
+                        div.product-calculator__block-rezult-info-el-thin
+                            div Себестоимость
+                            span -645 &#8381
+                        div.product-calculator__block-rezult-info-el-bold
+                            div Чистыми, с одного товара
+                            span 634 &#8381

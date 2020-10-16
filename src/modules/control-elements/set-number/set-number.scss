@@ -32,7 +32,7 @@
   }
 
   &__input {
-    width: 8rem;
+    width: 9.8rem;
     height: auto;
 
     font-size: 1.4rem;
@@ -51,5 +51,9 @@
     border-bottom: 0.1rem solid $helper-color-lightgray;
 
     transition: border ease 0.25s;
+
+    @include above($tablet) {
+      width: 8rem;
+    }
   }
 }

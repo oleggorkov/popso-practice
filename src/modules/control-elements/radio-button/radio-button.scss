@@ -39,8 +39,12 @@
 
   position: absolute;
 
-  padding-left: 4.4rem;
+  padding-left: 4rem;
   padding-top: 0.3rem;
+
+  @include above($mobile) {
+    padding-left: 4.4rem;
+  }
 
   &:before {
     content: "";

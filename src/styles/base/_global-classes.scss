@@ -38,6 +38,12 @@ main{
   transition: color 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
 
+  margin-left: 0.6rem;
+
+  @include above($tablet) {
+    margin-left: 0;
+  }
+
   &:hover {
 
     &::before {
