@@ -7,6 +7,30 @@
 
   background-color: $helper-color-middlegray;
 
+  & .page-title {
+    display: none;
+
+    @include above($tablet) {
+      display: block;
+    }
+  }
+
+  & .page-title__mobile {
+    width: 100%;
+    height: auto;
+
+    font-size: 2rem;
+    line-height: 3.2rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: $main-color-black;
+    text-align: left;
+
+    @include above($tablet) {
+      display: none;
+    }
+  }
+
   &__wrapper {
     width: 100%;
     height: auto;
@@ -66,6 +90,26 @@
 
         @include above($tablet) {
           width: 20rem;
+        }
+
+        & .title__middlegray {
+          font-size: 1.4rem;
+          font-weight: 500;
+          line-height: 2rem;
+          letter-spacing: 0;
+          text-align: left;
+
+          color: $helper-color-darkgray;
+
+          @include above($tablet) {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6rem;
+            letter-spacing: 0;
+            text-align: left;
+
+            color: $helper-color-middlegray;
+          }
         }
       }
 

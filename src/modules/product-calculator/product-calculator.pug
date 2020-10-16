@@ -28,6 +28,7 @@ mixin product-calculator
     section.product-calculator
         div.product-calculator__wrapper
             h1.page-title Калькулятор маржинальности товара при продаже на маркетплейсах
+            h1.page-title__mobile Калькулятор товара
             div.product-calculator__block
                 div.product-calculator__block-data
                     div.product-calculator__block-data-el
@@ -37,11 +38,11 @@ mixin product-calculator
                     div.product-calculator__block-data-el
                         +calc-input-rate('Упаковка, хранение, руб', 'Товар у вас, теперь его надо понятно, красиво и удобно упаковать и где-то хранить')
                     div.product-calculator__block-data-el
-                        +calc-set('Комиссия маркетплейса, %', 'Средний процент — 15. У каждой площадки свои комиссии на разные категории товаров')
+                        +calc-set('Комиссия маркетплейса', 'Средний процент — 15. У каждой площадки свои комиссии на разные категории товаров')
                     div.product-calculator__block-data-el
-                        +calc-set('Скидка на маркетплейсе, %', 'Покупатели любят скидки. Маркетплейсы проводят акции, для которых нужны скидки. Закладывайте возможность проводить акции в цену товара')
+                        +calc-set('Скидка на маркетплейсе', 'Покупатели любят скидки. Маркетплейсы проводят акции, для которых нужны скидки. Закладывайте возможность проводить акции в цену товара')
                     div.product-calculator__block-data-el
-                        +calc-set('Реклама на маркетплейсе, %', 'Для повышения продаж товары нужно рекламировать на площадке, чтобы покупатели выбирали вас среди множества предложений')
+                        +calc-set('Реклама на маркетплейсе', 'Для повышения продаж товары нужно рекламировать на площадке, чтобы покупатели выбирали вас среди множества предложений')
                     div.product-calculator__block-data-delivery
                         h2.title__darkgray Покатушки
                         div.product-calculator__block-data-delivery-wrap
