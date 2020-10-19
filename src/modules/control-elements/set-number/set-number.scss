@@ -11,6 +11,7 @@
     color: $helper-color-darkgray;
 
     border: 0.1rem solid $helper-color-lightgray;
+    // TODO Это ресет свойство уже задано всем элементам по умолчанию. См. файл _reset.scss
     box-sizing: border-box;
 
     transition: color ease 0.25s, border ease 0.25s;
@@ -24,10 +25,12 @@
   }
 
   &__minus {
+    // TODO border-radius можно было задать родительскому элементу.
     border-radius: 1rem 0 0 1rem;
   }
 
   &__plus {
+    // TODO border-radius можно было задать родительскому элементу.
     border-radius: 0 1rem 1rem 0;
   }
 

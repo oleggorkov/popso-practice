@@ -81,6 +81,9 @@
     top: 0.45rem;
     left: 0.7rem;
     opacity: 0;
+
+    //TODO Можно было задать время анимации.
+    transition: opacity ease 0.25s;
   }
 }
 

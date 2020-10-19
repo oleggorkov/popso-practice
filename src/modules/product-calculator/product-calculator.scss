@@ -3,7 +3,8 @@
   height: auto;
 
   display: flex;
-  align-self: flex-end;
+  //TODO не понимаю почему тут блок спозиционирован не по центру... Не критично
+  align-self: center;
 
   background-color: $helper-color-middlegray;
 
@@ -15,6 +16,7 @@
     }
   }
 
+  //TODO Такого блока быть не должно в принципе, нужно было уточнить у дизайнера этот момент. Важно!
   & .page-title__mobile {
     width: 100%;
     height: auto;
@@ -80,6 +82,7 @@
       }
 
       @include above($desktop) {
+        // TODO Так нельзя делать, абстрактная величина из головы разработчика. Важно!
         width: 60.4%;
       }
 
@@ -235,15 +238,18 @@
       margin-top: 2.4rem;
 
       @include above($tablet) {
+        // TODO Так нельзя делать, абстрактная величина из головы разработчика. Важно!
         width: 60%;
         padding: 2.2rem 3.8rem 3.8rem 3.8rem;
       }
 
       @include above($desktop) {
+        // TODO Так нельзя делать, абстрактная величина из головы разработчика. Важно!
         width: 37.5%;
         margin-top: 0;
       }
 
+      // TODO Желательно не стилизовать элементы напрямую(без класса).
       h2 {
         width: 100%;
         height: auto;
@@ -268,6 +274,7 @@
 
         margin-top: 1.2rem;
 
+        // TODO Желательно не стилизовать элементы напрямую(без класса).
         h3 {
           font-size: 1.4rem;
           font-weight: 700;
@@ -300,6 +307,7 @@
             justify-content: space-between;
             align-items: center;
 
+            // TODO Желательно не стилизовать элементы напрямую(без класса).
             div {
               width: 15rem;
 
@@ -363,6 +371,7 @@
             }
           }
 
+          // TODO Желательно не стилизовать элементы напрямую(без класса).
           div {
             width: 13.6rem;
 
@@ -382,6 +391,7 @@
             }
           }
 
+          // TODO Желательно не стилизовать элементы напрямую(без класса).
           span {
             font-size: 1.4rem;
             font-weight: 700;
@@ -417,6 +427,7 @@
                 margin-bottom: 0.4rem;
               }
 
+              // TODO Желательно не стилизовать элементы напрямую(без класса).
               div {
                 font-size: 1.2rem;
                 font-weight: 400;
@@ -427,6 +438,7 @@
                 color: #FFFFFF;
               }
 
+              // TODO Желательно не стилизовать элементы напрямую(без класса).
               span {
                 font-size: 1.2rem;
                 font-weight: 400;
@@ -449,6 +461,7 @@
   }
 }
 
+// TODO Почему стили компонента, находятся именно тут? Почему они не в файле calc-input.scss? Важно!
 .calc-input {
   width: 100%;
   height: auto;
@@ -488,6 +501,7 @@
   }
 }
 
+// TODO Почему стили компонента, находятся именно тут? Почему они не в файле calc-set.scss? Важно!
 .calc-set {
   width: 100%;
   height: auto;
