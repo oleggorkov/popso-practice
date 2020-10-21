@@ -3,7 +3,6 @@
   height: auto;
 
   display: flex;
-  //TODO не понимаю почему тут блок спозиционирован не по центру... Не критично
   align-self: center;
 
   background-color: $helper-color-middlegray;
@@ -16,7 +15,36 @@
     }
   }
 
-  //TODO Такого блока быть не должно в принципе, нужно было уточнить у дизайнера этот момент. Важно!
+  &__sub-title {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 500;
+    letter-spacing: 0;
+
+    color: $helper-color-darkgray;
+    text-align: left;
+  }
+
+  &__sub-title--middlegray {
+    display: flex;
+
+    width: auto;
+    min-height: 3.2rem;
+    height: auto;
+
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0;
+
+    color: $helper-color-middlegray;
+    text-align: left;
+
+    &:first-of-type {
+      align-items: flex-end;
+    }
+  }
+
   & .page-title__mobile {
     width: 100%;
     height: auto;
@@ -50,7 +78,7 @@
     }
   }
 
-  &__block {
+  &-block {
     width: 100%;
     height: auto;
 
@@ -64,7 +92,7 @@
       flex-direction: row;
     }
 
-    &-data {
+    &__data {
       width: 100%;
       height: auto;
 
@@ -80,144 +108,139 @@
       @include above($desktop) {
         padding: 3.2rem 3.9rem;
       }
+    }
 
-      @include above($desktop) {
-        // TODO Так нельзя делать, абстрактная величина из головы разработчика. Важно!
-        width: 60.4%;
+    &__delivery {
+      width: 100%;
+      height: auto;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      @include above($tablet) {
+        flex-direction: row;
       }
+    }
 
-      &-el {
-        width: 100%;
+    &__content {
+      width: 100%;
+      height: auto;
 
-        margin-bottom: 3.2rem;
+      display: flex;
+      flex-direction: column;
+
+      &:last-of-type {
+        margin-top: 3.2rem;
 
         @include above($tablet) {
-          width: 20rem;
+          margin-top: 0;
+        }
+      }
+
+      &-store {
+        display: flex;
+        flex-direction: column;
+
+        margin-top: 1rem;
+
+        & .radio__block:not(:last-of-type) {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+
+    &__popso {
+      width: 100%;
+      height: auto;
+
+      display: flex;
+      flex-direction: column;
+
+      margin-top: 3.6rem;
+    }
+
+    &__support {
+      display: flex;
+      flex-direction: column;
+
+      margin-top: 1.2rem;
+
+      & .radio__block {
+        width: 7rem;
+      }
+
+      &-radio {
+        display: flex;
+
+        &:not(:last-of-type) {
+          margin-bottom: 2rem;
         }
 
-        & .title__middlegray {
-          font-size: 1.4rem;
-          font-weight: 500;
-          line-height: 2rem;
+        &-label {
+          width: 16.4rem;
+
+          display: flex;
+          align-items: center;
+
+          font-size: 1.2rem;
+          line-height: 1.6rem;
+          font-style: normal;
+          letter-spacing: 0;
+          color: $helper-color-darkgray;
+          text-align: left;
+
+          @include above($mobile) {
+            width: auto;
+          }
+        }
+      }
+    }
+
+    &__header {
+      display: flex;
+
+      & .product-calculator__sub-title {
+        width: 20rem;
+
+        @include above($phone) {
+          width: auto;
+          margin-right: 1rem;
+        }
+      }
+    }
+
+    &__el {
+      width: 100%;
+
+      margin-bottom: 3.2rem;
+
+      @include above($tablet) {
+        width: 20rem;
+      }
+
+      & .product-calculator__sub-title--middlegray {
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 2rem;
+        letter-spacing: 0;
+        text-align: left;
+
+        color: $helper-color-darkgray;
+
+        @include above($tablet) {
+          font-size: 1.2rem;
+          font-weight: 400;
+          line-height: 1.6rem;
           letter-spacing: 0;
           text-align: left;
 
-          color: $helper-color-darkgray;
-
-          @include above($tablet) {
-            font-size: 1.2rem;
-            font-weight: 400;
-            line-height: 1.6rem;
-            letter-spacing: 0;
-            text-align: left;
-
-            color: $helper-color-middlegray;
-          }
-        }
-      }
-
-      &-delivery {
-        width: 100%;
-        height: auto;
-
-        display: flex;
-        flex-direction: column;
-
-        &-wrap {
-          display: flex;
-          justify-content: space-between;
-          flex-direction: column;
-
-          @include above($tablet) {
-            flex-direction: row;
-          }
-        }
-
-        &-block {
-          width: 100%;
-          height: auto;
-
-          display: flex;
-          flex-direction: column;
-
-          &:last-of-type {
-            margin-top: 3.2rem;
-
-            @include above($tablet) {
-              margin-top: 0;
-            }
-          }
-        }
-
-        &-store {
-          display: flex;
-          flex-direction: column;
-
-          margin-top: 1rem;
-
-          & .radio__block:not(:last-of-type) {
-            margin-bottom: 2rem;
-          }
-        }
-      }
-
-      &-popso {
-        width: 100%;
-        height: auto;
-
-        display: flex;
-        flex-direction: column;
-
-        margin-top: 3.6rem;
-
-        &-header {
-          display: flex;
-
-          & .title__darkgray {
-            width: 20rem;
-
-            @include above($phone) {
-              width: auto;
-              margin-right: 1rem;
-            }
-          }
-        }
-
-        &-support {
-          display: flex;
-          flex-direction: column;
-
-          margin-top: 1.2rem;
-
-          & .radio__block {
-            width: 7rem;
-          }
-
-          &-radio {
-            display: flex;
-
-            &:not(:last-of-type) {
-              margin-bottom: 2rem;
-            }
-
-            span {
-              width: 16.4rem;
-
-              display: flex;
-              align-items: center;
-
-              font-size: 1.2rem;
-              line-height: 1.6rem;
-              font-style: normal;
-              letter-spacing: 0;
-              color: $helper-color-darkgray;
-              text-align: left;
-
-              @include above($mobile) {
-                width: auto;
-              }
-            }
-          }
+          color: $helper-color-middlegray;
         }
       }
     }
@@ -238,19 +261,16 @@
       margin-top: 2.4rem;
 
       @include above($tablet) {
-        // TODO Так нельзя делать, абстрактная величина из головы разработчика. Важно!
-        width: 60%;
+        width: 50rem;
         padding: 2.2rem 3.8rem 3.8rem 3.8rem;
       }
 
       @include above($desktop) {
-        // TODO Так нельзя делать, абстрактная величина из головы разработчика. Важно!
-        width: 37.5%;
         margin-top: 0;
+        margin-left: 4rem;
       }
 
-      // TODO Желательно не стилизовать элементы напрямую(без класса).
-      h2 {
+      &__title {
         width: 100%;
         height: auto;
 
@@ -264,7 +284,20 @@
 
       }
 
-      &-info {
+      &__sub-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 2rem;
+        letter-spacing: 0;
+        text-align: left;
+
+        color: #FFFFFF;
+
+        margin-bottom: 0.8rem;
+
+      }
+
+      &__info {
         width: 100%;
         height: auto;
 
@@ -273,110 +306,32 @@
         align-items: flex-start;
 
         margin-top: 1.2rem;
+      }
 
-        // TODO Желательно не стилизовать элементы напрямую(без класса).
-        h3 {
-          font-size: 1.4rem;
-          font-weight: 700;
-          line-height: 2rem;
-          letter-spacing: 0;
-          text-align: left;
+      &__el {
+        width: 100%;
+        height: auto;
 
-          color: #FFFFFF;
+        display: flex;
+        justify-content: space-between;
 
-          margin-bottom: 0.8rem;
-
+        &:not(:last-of-type) {
+          margin-bottom: 1.1rem;
         }
 
-        &-el {
+        &-bold {
           width: 100%;
           height: auto;
 
           display: flex;
           justify-content: space-between;
+          align-items: center;
 
-          &:not(:last-of-type) {
-            margin-bottom: 1.1rem;
-          }
-
-          &-bold {
-            width: 100%;
-            height: auto;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            // TODO Желательно не стилизовать элементы напрямую(без класса).
-            div {
-              width: 15rem;
-
-              font-size: 1.4rem;
-              font-weight: 700;
-              line-height: 2rem;
-              letter-spacing: 0;
-              text-align: left;
-
-              color: #FFFFFF;
-
-              @include above($phone) {
-                width: 16rem;
-              }
-
-              @include above($mobile) {
-                width: auto;
-              }
-            }
-
-            span {
-              font-size: 2rem;
-              font-weight: 700;
-              line-height: 3.2rem;
-              letter-spacing: 0;
-              text-align: right;
-
-              color: #FFFFFF;
-            }
-          }
-
-          &-thin {
-            width: 100%;
-            height: auto;
-
-            display: flex;
-            justify-content: space-between;
-
-            margin-top: -1.1rem;
-            margin-bottom: 0.7rem;
-
-            div {
-              font-size: 1.2rem;
-              font-weight: 400;
-              line-height: 1.6rem;
-              letter-spacing: 0;
-              text-align: left;
-
-              color: #FFFFFF;
-            }
-
-            span {
-              font-size: 1.2rem;
-              font-weight: 400;
-              line-height: 1.6rem;
-              letter-spacing: 0;
-              text-align: right;
-
-              color: #FFFFFF;
-
-            }
-          }
-
-          // TODO Желательно не стилизовать элементы напрямую(без класса).
-          div {
-            width: 13.6rem;
+          &-title {
+            width: 15rem;
 
             font-size: 1.4rem;
-            font-weight: 500;
+            font-weight: 700;
             line-height: 2rem;
             letter-spacing: 0;
             text-align: left;
@@ -384,72 +339,131 @@
             color: #FFFFFF;
 
             @include above($phone) {
-              width: 17rem;
+              width: 16rem;
             }
+
             @include above($mobile) {
               width: auto;
             }
           }
 
-          // TODO Желательно не стилизовать элементы напрямую(без класса).
-          span {
-            font-size: 1.4rem;
+          &-info {
+            font-size: 2rem;
             font-weight: 700;
-            line-height: 2rem;
+            line-height: 3.2rem;
+            letter-spacing: 0;
+            text-align: right;
+
+            color: #FFFFFF;
+          }
+        }
+
+        &-thin {
+          width: 100%;
+          height: auto;
+
+          display: flex;
+          justify-content: space-between;
+
+          margin-top: -1.1rem;
+          margin-bottom: 0.7rem;
+
+          &-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6rem;
+            letter-spacing: 0;
+            text-align: left;
+
+            color: #FFFFFF;
+          }
+
+          &-info {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6rem;
             letter-spacing: 0;
             text-align: right;
 
             color: #FFFFFF;
 
           }
+        }
 
-          &-tab {
-            width: 100%;
-            height: auto;
+        &-title {
+          width: 13.6rem;
 
-            display: flex;
-            flex-direction: column;
+          font-size: 1.4rem;
+          font-weight: 500;
+          line-height: 2rem;
+          letter-spacing: 0;
+          text-align: left;
 
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 1rem;
+          color: #FFFFFF;
 
-            padding: 0.9rem 1.6rem 1rem 1.6rem;
-            margin-bottom: 1.1rem;
+          @include above($phone) {
+            width: 17rem;
+          }
+          @include above($mobile) {
+            width: auto;
+          }
+        }
 
-            &-list {
-              width: 100%;
-              height: auto;
+        &-info {
+          font-size: 1.4rem;
+          font-weight: 700;
+          line-height: 2rem;
+          letter-spacing: 0;
+          text-align: right;
 
-              display: flex;
-              justify-content: space-between;
+          color: #FFFFFF;
 
-              &:not(:last-of-type) {
-                margin-bottom: 0.4rem;
-              }
+        }
+      }
 
-              // TODO Желательно не стилизовать элементы напрямую(без класса).
-              div {
-                font-size: 1.2rem;
-                font-weight: 400;
-                line-height: 1.6rem;
-                letter-spacing: 0;
-                text-align: left;
+      &__tab {
+        width: 100%;
+        height: auto;
 
-                color: #FFFFFF;
-              }
+        display: flex;
+        flex-direction: column;
 
-              // TODO Желательно не стилизовать элементы напрямую(без класса).
-              span {
-                font-size: 1.2rem;
-                font-weight: 400;
-                line-height: 1.6rem;
-                letter-spacing: 0;
-                text-align: right;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 1rem;
 
-                color: #FFFFFF;
+        padding: 0.9rem 1.6rem 1rem 1.6rem;
+        margin-bottom: 1.1rem;
 
-              }
-            }
+        &-list {
+          width: 100%;
+          height: auto;
+
+          display: flex;
+          justify-content: space-between;
+
+          &:not(:last-of-type) {
+            margin-bottom: 0.4rem;
+          }
+
+          &-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6rem;
+            letter-spacing: 0;
+            text-align: left;
+
+            color: #FFFFFF;
+          }
+
+          &-info {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6rem;
+            letter-spacing: 0;
+            text-align: right;
+
+            color: #FFFFFF;
+
           }
         }
       }
@@ -458,72 +472,5 @@
 
   & .set-number {
     margin-top: 1rem;
-  }
-}
-
-// TODO Почему стили компонента, находятся именно тут? Почему они не в файле calc-input.scss? Важно!
-.calc-input {
-  width: 100%;
-  height: auto;
-
-  display: flex;
-  flex-direction: column;
-
-  input {
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-    font-weight: 400;
-    letter-spacing: 0;
-
-    color: $helper-color-darkgray;
-    text-align: left;
-
-    cursor: pointer;
-
-    margin-top: 1rem;
-    padding-bottom: 0.9rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-
-    border: none;
-    border-bottom: 0.1rem solid $helper-color-lightgray;
-    border-radius: 0;
-
-    transition: border ease 0.25s;
-
-    &::placeholder {
-      color: $helper-color-middlegray;
-    }
-
-    &:hover {
-      border-bottom: 0.1rem solid $helper-color-darkgray;
-    }
-  }
-}
-
-// TODO Почему стили компонента, находятся именно тут? Почему они не в файле calc-set.scss? Важно!
-.calc-set {
-  width: 100%;
-  height: auto;
-
-  display: flex;
-  flex-direction: column;
-
-  &__title {
-    font-size: 1.4rem;
-    line-height: 2rem;
-    font-weight: 500;
-    letter-spacing: 0;
-
-    color: $helper-color-darkgray;
-    text-align: left;
-  }
-
-  &__header {
-    display: flex;
-
-    @include above($tablet) {
-     justify-content: space-between;
-    }
   }
 }

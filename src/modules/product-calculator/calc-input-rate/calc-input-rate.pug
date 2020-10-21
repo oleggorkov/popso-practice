@@ -1,0 +1,8 @@
+mixin calc-input-rate(title, text)
+    div.calc-input
+        div.calc-set__header
+            h2.title__middlegray= title
+            span.question-info ?
+                span.question-info__popup
+                    span.question-info__popup-text= text
+        input(type='number' name='set-count')

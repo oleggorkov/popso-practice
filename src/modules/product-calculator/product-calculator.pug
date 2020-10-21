@@ -1,173 +1,103 @@
 include ../control-elements/radio-button/radio-button
 include ../control-elements/set-number/set-number
+include calc-input/calc-input
+include calc-input-rate/calc-input-rate
+include calc-set/calc-set
+include ../control-elements/question-info/question-info
 
-mixin calc-input(title)
-    div.calc-input
-        h2.title__darkgray= title
-        input(type='number' name='set-count')
-
-mixin calc-input-rate(title, text)
-    // TODO Можно сделать отдельным компонентом.
-    div.calc-input
-        div.calc-set__header
-            h2.title__middlegray= title
-            span.question-info ?
-                span.question-info__popup
-                    span.question-info__popup-text= text
-        input(type='number' name='set-count')
-
-mixin calc-set(title, text)
-    div.calc-set
-        div.calc-set__header
-            h2.title__middlegray= title
-            span.question-info ?
-                span.question-info__popup
-                    span.question-info__popup-text= text
-        +set-number
 
 mixin product-calculator
     section.product-calculator
         div.product-calculator__wrapper
             h1.page-title Калькулятор маржинальности товара при продаже на маркетплейсах
-            // TODO Такого блока быть не должно в принципе, нужно было уточнить у дизайнера этот момент. Важно!
             h1.page-title__mobile Калькулятор товара
-            // TODO БЭМ ошибка. Этот элмент - блок. product-calculator__block не является элементом
-                product-calculator. Важно!
-            div.product-calculator__block
-                // TODO БЭМ ошибка. Этот элмент - блок. Логично сделать эту сущность блоком, а не элементом. Важно!
-                div.product-calculator__block-data
-                    // TODO БЭМ ошибка. product-calculator__block-data-el не является элментом блока
-                        product-calculator, это элемент блока product-calculator__block. Важно!
-                    div.product-calculator__block-data-el
+            div.product-calculator-block
+                div.product-calculator-block__data
+                    div.product-calculator-block__el
                         +calc-input('Розничная цена, руб.')
-                    div.product-calculator__block-data-el
+                    div.product-calculator-block__el
                         +calc-input('Себестоимость, руб.')
-                    div.product-calculator__block-data-el
+                    div.product-calculator-block__el
                         +calc-input-rate('Упаковка, хранение, руб', 'Товар у вас, теперь его надо понятно, красиво и удобно упаковать и где-то хранить')
-                    div.product-calculator__block-data-el
+                    div.product-calculator-block__el
                         +calc-set('Комиссия маркетплейса', 'Средний процент — 15. У каждой площадки свои комиссии на разные категории товаров')
-                    div.product-calculator__block-data-el
+                    div.product-calculator-block__el
                         +calc-set('Скидка на маркетплейсе', 'Покупатели любят скидки. Маркетплейсы проводят акции, для которых нужны скидки. Закладывайте возможность проводить акции в цену товара')
-                    div.product-calculator__block-data-el
+                    div.product-calculator-block__el
                         +calc-set('Реклама на маркетплейсе', 'Для повышения продаж товары нужно рекламировать на площадке, чтобы покупатели выбирали вас среди множества предложений')
-                    // TODO БЭМ ошибка. product-calculator__block-data-delivery не является элментом блока
-                        product-calculator, это элемент блока product-calculator__block. Важно!
-                    div.product-calculator__block-data-delivery
-                        // TODO БЭМ ошибка. Ужаснейшее название класса! Во первых, если нужно задать определенный
-                            цвет блоку, нужно использовать модификатор. Во вторых, почему этот блок сделан элементом,
-                            если у него нет родителя title? В третьих, почему именно такое название? Это очень
-                            глобаное название, тут больше подойдет точечное название по типу:
-                            product-calculator__sub-title. Критично!
-                        h2.title__darkgray Покатушки
-                        div.product-calculator__block-data-delivery-wrap
-                            div.product-calculator__block-data-delivery-block
-                                // TODO БЭМ ошибка. Ужаснейшее название класса! Во первых, если нужно задать определенный
-                                    цвет блоку, нужно использовать модификатор. Во вторых, почему этот блок сделан элементом,
-                                    если у него нет родителя title? В третьих, почему именно такое название? Это очень
-                                    глобаное название, тут больше подойдет точечное название по типу:
-                                    product-calculator__sub-title. Ко всему этому, это не является тайтлом, это
-                                    просто текст описания, тут больше подйтет просто тег p. Так же в этом моменте
-                                    использован модификатор отступа сверху. Как понять что за --padding-top? Если в
-                                    проекте будет пять таких модификаторов, как понять где и насколько отступ сверху?
-                                    Ко всему прочему, это ошибки верстки, так делать нельзя. Появится в правом блоке
-                                    текст в 3 строки - все развалится. Критично!
-                                h3.title__middlegray.title__middlegray--padding-top Доставка со склада
-                                // TODO БЭМ ошибка. product-calculator__block-data-delivery-store не является элментом блока
-                                    product-calculator, это элемент блока product-calculator__block. Важно!
-                                div.product-calculator__block-data-delivery-store
+                    div.product-calculator-block__delivery
+                        p.product-calculator__sub-title Покатушки
+                        div.product-calculator-block__wrap
+                            div.product-calculator-block__content
+                                p.product-calculator__sub-title--middlegray Доставка со склада
+                                div.product-calculator-block__content-store
                                     +radio-btn('33 руб./Wildberries', 'wildberries', 'delivery',
                                         'wildberries', ['radio-label', 'radio-input'], 'checked')
                                     +radio-btn('35 руб./Ozon', 'ozon', 'delivery',
                                         'ozon', ['radio-label', 'radio-input'], '', '(мелкий товар)')
                                     +radio-btn('75 руб./Ozon', 'ozon-big', 'delivery',
                                         'ozon-big', ['radio-label', 'radio-input'], '', '(товар побольше)')
-                            div.product-calculator__block-data-delivery-block
-                                // TODO БЭМ ошибка. Ужаснейшее название класса! Во первых, если нужно задать определенный
-                                    цвет блоку, нужно использовать модификатор. Во вторых, почему этот блок сделан элементом,
-                                    если у него нет родителя title? В третьих, почему именно такое название? Это очень
-                                    глобаное название, тут больше подойдет точечное название по типу:
-                                    product-calculator__sub-title. Ко всему этому, это не является тайтлом, это
-                                    просто текст описания, тут больше подйтет просто тег p. Критично!
-                                h3.title__middlegray 1шт – продажа с 1го раза, 3шт – со 2го, 5шт – проблемы с товаром
-                                // TODO БЭМ ошибка. product-calculator__block-data-delivery-store не является элментом блока
-                                    product-calculator, это элемент блока product-calculator__block. Важно!
-                                div.product-calculator__block-data-delivery-store
+                            div.product-calculator-block__content
+                                p.product-calculator__sub-title--middlegray 1шт – продажа с 1го раза, 3шт – со 2го, 5шт – проблемы с товаром
+                                div.product-calculator-block__content-store
                                     +radio-btn('1 раз', 'one', 'delivery-number',
                                         'one', ['radio-label', 'radio-input'], 'checked')
                                     +radio-btn('3 раза', 'three', 'delivery-number',
                                         'three', ['radio-label', 'radio-input'])
                                     +radio-btn('5 раз', 'five', 'delivery-number',
                                         'five', ['radio-label', 'radio-input'])
-                    div.product-calculator__block-data-popso
-                        // TODO БЭМ ошибка. product-calculator__block-data-popso-header не является элментом блока
-                            product-calculator, это элемент блока product-calculator__block. Использование
-                            таргетированных названий(в данном случае 'popso') - очень не практично. Такой блок уже
-                            нельзя использовать в других местах. Так же ломается структуру разметки и стилей. Выше
-                            есть точно такой же заголовок, но данного класса у него нет! Важно!
-                        div.product-calculator__block-data-popso-header
-                            // TODO БЭМ ошибка. Ужаснейшее название класса! Во первых, если нужно задать определенный
-                                цвет блоку, нужно использовать модификатор. Во вторых, почему этот блок сделан элементом,
-                                если у него нет родителя title? В третьих, почему именно такое название? Это очень
-                                глобаное название, тут больше подойдет точечное название по типу:
-                                product-calculator__sub-title. Критично!
-                            h2.title__darkgray Ведение и поддержка от POPSO
-                            // TODO Элемент встречается в БЛОКЕ(даже не странице) 5 раз, но он не вынесен в отдельный
-                                компонент. Важно!
-                            span.question-info ?
-                                span.question-info__popup
-                                    span.question-info__popup-text Укажите процент указанный для артикула в качестве "СПП" - если "СПП" не используется укажите "0
-                        div.product-calculator__block-data-popso-support
-                            div.product-calculator__block-data-popso-support-radio
+                    div.product-calculator-block__popso
+                        div.product-calculator-block__header
+                            p.product-calculator__sub-title Ведение и поддержка от POPSO
+                            +question-info('Укажите процент указанный для артикула в качестве "СПП" - если "СПП" не используется укажите "0')
+                        div.product-calculator-block__support
+                            div.product-calculator-block__support-radio
                                 +radio-btn('8%', 'eight', 'popso-rate',
                                     'eight', ['radio-label', 'radio-input'], 'checked')
-                                span / с продаж после вычета комиссий маркетплейса
-                            div.product-calculator__block-data-popso-support-radio
+                                span.product-calculator-block__support-radio-label / с продаж после вычета комиссий маркетплейса
+                            div.product-calculator-block__support-radio
                                 +radio-btn('0%', 'zero', 'popso-rate',
                                     'zero', ['radio-label', 'radio-input'])
-                                span / сами, всё сами :)
-                // TODO БЭМ ошибка. Этот элмент - блок. Логично сделать эту сущность блоком, а не элементом. Важно!
-                div.product-calculator__block-rezult
-                    h2 Результаты расчёта
-                    // TODO БЭМ ошибка. product-calculator__block-rezult-info не является элментом блока
-                        product-calculator, это элемент блока product-calculator__block-rezult. Тоже самое касается
-                        всех блоков ниже. Важно!
-                    div.product-calculator__block-rezult-info
-                        div.product-calculator__block-rezult-info-el
-                            div Цена товара
-                            span 2500 &#8381
-                        div.product-calculator__block-rezult-info-el
-                            div Комиссия маркетплейса
-                            span 638 &#8381
-                        div.product-calculator__block-rezult-info-el-tab
-                            div.product-calculator__block-rezult-info-el-tab-list
-                                div Товар
-                                span 1000 &#8381
-                            div.product-calculator__block-rezult-info-el-tab-list
-                                div Реклама
-                                span 190 &#8381
-                            div.product-calculator__block-rezult-info-el-tab-list
-                                div Логистика
-                                span 810 &#8381
-                        div.product-calculator__block-rezult-info-el
-                            div Перечисление на ваш счёт
-                            span 1487 &#8381
-                        div.product-calculator__block-rezult-info-el
-                            div Налоги и комиссия POPSO
-                            span 208 &#8381
-                        div.product-calculator__block-rezult-info-el-tab
-                            div.product-calculator__block-rezult-info-el-tab-list
-                                div Налоги
-                                span 89 &#8381
-                            div.product-calculator__block-rezult-info-el-tab-list
-                                div Спасибо popso.ru
-                                span 119 &#8381
-                        h3 Вы заработали
-                        div.product-calculator__block-rezult-info-el
-                            div С одной продажи
-                            span 1279 &#8381
-                        div.product-calculator__block-rezult-info-el-thin
-                            div Себестоимость
-                            span -645 &#8381
-                        div.product-calculator__block-rezult-info-el-bold
-                            div Чистыми, с одного товара
-                            span 634 &#8381
+                                span.product-calculator-block__support-radio-label / сами, всё сами :)
+                div.product-calculator-block-rezult
+                    p.product-calculator-block-rezult__title Результаты расчёта
+                    div.product-calculator-block-rezult__info
+                        div.product-calculator-block-rezult__el
+                            div.product-calculator-block-rezult__el-title Цена товара
+                            span.product-calculator-block-rezult__el-info 2500 &#8381
+                        div.product-calculator-block-rezult__el
+                            div.product-calculator-block-rezult__el-title Комиссия маркетплейса
+                            span.product-calculator-block-rezult__el-info 638 &#8381
+                        div.product-calculator-block-rezult__tab
+                            div.product-calculator-block-rezult__tab-list
+                                div.product-calculator-block-rezult__tab-list-title Товар
+                                span.product-calculator-block-rezult__tab-list-info 1000 &#8381
+                            div.product-calculator-block-rezult__tab-list
+                                div.product-calculator-block-rezult__tab-list-title Реклама
+                                span.product-calculator-block-rezult__tab-list-info 190 &#8381
+                            div.product-calculator-block-rezult__tab-list
+                                div.product-calculator-block-rezult__tab-list-title Логистика
+                                span.product-calculator-block-rezult__tab-list-info 810 &#8381
+                        div.product-calculator-block-rezult__el
+                            div.product-calculator-block-rezult__el-title Перечисление на ваш счёт
+                            span.product-calculator-block-rezult__el-info 1487 &#8381
+                        div.product-calculator-block-rezult__el
+                            div.product-calculator-block-rezult__el-title Налоги и комиссия POPSO
+                            span.product-calculator-block-rezult__el-info 208 &#8381
+                        div.product-calculator-block-rezult__tab
+                            div.product-calculator-block-rezult__tab-list
+                                div.product-calculator-block-rezult__tab-list-title Налоги
+                                span.product-calculator-block-rezult__tab-list-info 89 &#8381
+                            div.product-calculator-block-rezult__tab-list
+                                div.product-calculator-block-rezult__tab-list-title Спасибо popso.ru
+                                span.product-calculator-block-rezult__tab-list-info 119 &#8381
+                        p.product-calculator-block-rezult__sub-title Вы заработали
+                        div.product-calculator-block-rezult__el
+                            div.product-calculator-block-rezult__el-title С одной продажи
+                            span.product-calculator-block-rezult__el-info 1279 &#8381
+                        div.product-calculator-block-rezult__el-thin
+                            div.product-calculator-block-rezult__el-thin-title Себестоимость
+                            span.product-calculator-block-rezult__el-thin-info -645 &#8381
+                        div.product-calculator-block-rezult__el-bold
+                            div.product-calculator-block-rezult__el-bold-title Чистыми, с одного товара
+                            span.product-calculator-block-rezult__el-bold-info 634 &#8381

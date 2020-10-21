@@ -1,0 +1,38 @@
+.calc-input {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  input {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 0;
+
+    color: $helper-color-darkgray;
+    text-align: left;
+
+    cursor: pointer;
+
+    margin-top: 1rem;
+    padding-bottom: 0.9rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    border: none;
+    border-bottom: 0.1rem solid $helper-color-lightgray;
+    border-radius: 0;
+
+    transition: border ease 0.25s;
+
+    &::placeholder {
+      color: $helper-color-middlegray;
+    }
+
+    &:hover {
+      border-bottom: 0.1rem solid $helper-color-darkgray;
+    }
+  }
+}
